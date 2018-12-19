@@ -75,10 +75,9 @@ Below you can find some examples, with the input CPNJ and how the function will 
 
 | Original RG    | Masked RG    | Obs                                                    |
 | -------------- |--------------| -------------------------------------------------------|
-| 02.765.061-3   | 29.516.210-7 | The function can Hash CNPJ with its format mask              |
+| 02.765.061-3   | 29.516.210-7 | The function can Hash RG with its format mask              |
 | 021211711      | 290974501    | Masked value without Format Mask                                                  |
 | 02.121.171-1   | 29.097.450-1 | Mask function will maintain integrity. Same RG from row above, same masked value  |
-
 | *Null*         | *Null*       | Masking function will maintain Null values             |
 | `Empty`        | `Empty`      | Masking function will maintain Empty values            |
 
