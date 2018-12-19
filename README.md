@@ -9,7 +9,7 @@ Before We begin, We must clarify some points about Brazilian RG. BR RG do not ha
 2. Check Digit can be represented by the letter X in some particular cases;
 4. Our check digit is calculated based on mod11 algorithm.
 
-RG that do not follow theses particular rules are considered invalid by our mask function, and will not be masked. São Paulo and Rio de Janeiro are two states confirmed to follow these rules above.
+RGs which don't follow these particular rules are considered invalid by our mask function, and will not be masked. São Paulo and Rio de Janeiro are two states confirmed to follow these rules above.
 
 So, with everything clarified we can list the main features of the mask function:
 * The function will hash Brazilian RG with or without mask.
