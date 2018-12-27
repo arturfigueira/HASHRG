@@ -8,21 +8,20 @@ public class HashRG implements IMaskFunction {
 
     @Override
     public Object mask(Object... objects) {
-        String maskedValue = null;
-
         final String inputValue = (String) objects[0];
-        if(inputValue == null || inputValue.trim().isEmpty()){
-            maskedValue = inputValue;
+
+        String maskedValue = inputValue;
+        if(inputValue !=  null && inputValue.isEmpty()){
+            try{
+                maskedValue = hashIt(inputValue);
+            }catch (IllegalArgumentException e){
+                Datamasker.processOutputs(Datamasker.formatMessage("m0345-hasherr", new String[] { "HASH" }));
+                Datamasker.processErrors(Datamasker.formatMessage("m0345-hasherr", new String[] { "HASH" }));
+                Datamasker.processOutputs(Datamasker.formatMessage("m0155-DBValue", new String[] { inputValue }));
+                System.exit(1);
+            }
         }
 
-        try{
-            maskedValue = hashIt(inputValue);
-        }catch (IllegalArgumentException e){
-            Datamasker.processOutputs(Datamasker.formatMessage("m0345-hasherr", new String[] { "HASH" }));
-            Datamasker.processErrors(Datamasker.formatMessage("m0345-hasherr", new String[] { "HASH" }));
-            Datamasker.processOutputs(Datamasker.formatMessage("m0155-DBValue", new String[] { inputValue }));
-            System.exit(1);
-        }
         return maskedValue;
     }
 
